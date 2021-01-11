@@ -1,12 +1,12 @@
 package omar.problems.testing;
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 public class Testing {
 
     public static void main(String[] args) {
-        String a = "hola";
-        a = a.replace('x', 'a');
-        System.out.println(a);
-        a = a.replace('o',' ');
-        System.out.println(a);
+        HashMap<Long, Long> after = new HashMap<Long, Long>();
+
     }
 }
