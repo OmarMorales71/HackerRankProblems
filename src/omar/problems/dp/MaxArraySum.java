@@ -7,20 +7,20 @@ public class MaxArraySum {
     }
     // Complete the maxSubsetSum function below.
     static int maxSubsetSum(int[] arr) {
+        if(arr.length<3){
+            return Math.max(arr[0], arr[1])>=0?Math.max(arr[0], arr[1]):0;
+        }
 
-        return findingMaxSum(arr, arr.length-1);
+        int[] dp = new int[arr.length];
+        dp[0]=arr[0];
+        dp[1]=Math.max(arr[0],arr[1]);
+
+        for(int i=2; i< arr.length;i++){
+            dp[i] = Math.max(Math.max(dp[i-2]+arr[i],dp[i-1]),arr[i]);
+        }
+
+        return Math.max(dp[dp.length-1],0);
     }
 
-    private static int findingMaxSum(int[] arr, int i) {
 
-
-        if(i<0)
-            return 0;
-
-
-        int actual = Math.max(findingMaxSum(arr,i-2),0);
-        int max = Math.max(findingMaxSum(arr, i-1),0);
-
-        return Math.max(actual+arr[i],max);
-    }
 }
